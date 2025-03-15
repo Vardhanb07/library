@@ -26,6 +26,7 @@ body{
     align-items: center;
 }
 .book-holder{
+    display: none;
     border: 2px solid rgba(0, 0, 0, 0.459);
     width: 15%;
     height: 45%;
@@ -37,5 +38,20 @@ body{
 .book-holder:hover{
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.377);
     cursor: pointer;
+}
+.form {
+    position: absolute;
+    display: none;
+    width: 50%;
+    height: 50%;
+    bottom:25%;
+    left: 25%;
+    border: 1px solid black;
+    box-shadow: 0px 1px 30px 20px rgba(0, 0, 0, 0.582);
+    backdrop-filter: blur(10px);
+}
+form > p{
+    display: flex;
+    flex-direction: column;
 }
 
