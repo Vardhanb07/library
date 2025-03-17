@@ -35,8 +35,10 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    gap: 3px;
+    font-size: 26px;
     cursor: pointer;
+    font-family: "Roboto", sans-serif;
 }
 .books{
     flex: 5 0 0;
@@ -45,7 +47,6 @@ body{
     align-items: center;
 }
 .book-holder{
-    display: none;
     border: 2px solid rgba(0, 0, 0, 0.459);
     width: 15%;
     height: 45%;
@@ -67,6 +68,7 @@ body{
     left: 35%;
     box-shadow: 0px 1px 30px 20px rgba(0, 0, 0, 0.582);
     border-radius: 10px;
+    background-color: #fff;
 }
 form{
     display: flex;
@@ -140,4 +142,42 @@ form + button{
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+}
+.book-info{
+    display: none;
+    justify-content: start;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    gap : 14px;
+    flex-wrap: wrap;
+}
+.book{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 10%;
+    border: 2px solid rgba(0, 0, 0, 0.459);
+    margin-top: 20px;
+    border-radius: 7px;
+    padding: 5px;
+}
+.book  div{
+    display: flex;
+    flex-direction: column;
+}
+.title, .pages, .status, .priority{
+    font-size: 14px;
+    color: grey;
+    font-family: "Roboto", sans-serif;
+    text-decoration: underline;
+    text-decoration-color:  rgb(0, 217, 255);
+}
+.title + p, .pages + p, .status + p, .priority + p{
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
 }
