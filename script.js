@@ -27,12 +27,13 @@ button.addEventListener('click', (e) => {
     e.preventDefault()
     let title = document.querySelector('#title').value
     let pages = document.querySelector('#pages').value
-    let status = document.querySelector('#status').value
+    let status = document.querySelector('#status').getAttribute('data-status').toLowerCase()
     let priority = document.querySelector('#priority').value
     if(title != '' && pages != '' && status != '' && priority != ''){
         addBookToLibrary(title, pages, status, priority)
         let div = document.createElement('div')
         div.classList.add('book')
+        div.setAttribute('data-id', `${myLibrary[c].id}`)
         document.querySelector('.book-info').appendChild(div)
         // title
         let innerDiv = document.createElement('div')
@@ -78,7 +79,23 @@ button.addEventListener('click', (e) => {
         innerDiv.appendChild(para1)
         innerDiv.appendChild(para2)
         div.appendChild(innerDiv)
-
+        // remove-btn
+        innerDiv = document.createElement('div')
+        let removeBtn = document.createElement('button')
+        removeBtn.classList.add('remove-btn')
+        removeBtn.setAttribute('data-id', `${myLibrary[c].id}`)
+        removeBtn.textContent = 'REMOVE'
+        innerDiv.appendChild(removeBtn)
+        div.appendChild(innerDiv)
+        removeBtn.addEventListener('click', () => {
+            let id = removeBtn.getAttribute('data-id')
+            let books = document.querySelectorAll('.book')
+            books.forEach(book => {
+                if(id === book.getAttribute('data-id')){
+                    book.style.display = 'none'
+                }
+            })
+        })
         console.log(myLibrary)
         c += 1
 
@@ -87,6 +104,15 @@ button.addEventListener('click', (e) => {
         document.querySelector('form').reset()
         header.style.filter = 'blur(0)'
         form.style.display = 'none'
+        let books = document.querySelectorAll('.book')
+        books.forEach(book => {
+            book.style.filter = 'blur(0)'
+        });
+    }else if(c >= 1){
+        form.style.display = 'none'
+        bookHolder.style.display = 'none'
+        header.style.filter = 'blur(0)'
+        document.querySelector('form').reset()
         let books = document.querySelectorAll('.book')
         books.forEach(book => {
             book.style.filter = 'blur(0)'
@@ -115,4 +141,15 @@ document.querySelector('.return').addEventListener('click', () => {
     bookHolder.style.display = 'flex'
     form.style.display = 'none'
     header.style.filter = 'blur(0)'
+})
+const readBtn = document.querySelector('button[type="button"]')
+readBtn.addEventListener('click', () => {
+    let content = readBtn.textContent
+    if(content == 'READ'){
+        readBtn.textContent = 'NOT READ'
+        readBtn.setAttribute('data-status', 'READ')
+    }else{
+        readBtn.textContent = 'READ'
+        readBtn.setAttribute('data-status', 'NOT READ')
+    }
 })
