@@ -21,18 +21,95 @@ bookHolder.addEventListener('click', () => {
     form.style.display = 'block'
     header.style.filter = 'blur(8px)'
 })
-const button = document.querySelector('button')
-button.addEventListener('click', () => {
-    let input = document.querySelector('#title').value
-    console.log(input)
-    form.style.display = 'none'
-    bookHolder.style.display = 'flex'
-    header.style.filter = 'blur(0)'
+const button = document.querySelector('#submit')
+let c = 0
+button.addEventListener('click', (e) => {
+    e.preventDefault()
+    let title = document.querySelector('#title').value
+    let pages = document.querySelector('#pages').value
+    let status = document.querySelector('#status').value
+    let priority = document.querySelector('#priority').value
+    if(title != '' && pages != '' && status != '' && priority != ''){
+        addBookToLibrary(title, pages, status, priority)
+        let div = document.createElement('div')
+        div.classList.add('book')
+        document.querySelector('.book-info').appendChild(div)
+        // title
+        let innerDiv = document.createElement('div')
+        let para1 = document.createElement('p')
+        para1.classList.add('title')
+        para1.textContent = 'TITLE'
+        let para2 = document.createElement('p')
+        para2.classList.add('book-title')
+        para2.textContent = myLibrary[c].title  
+        innerDiv.appendChild(para1)
+        innerDiv.appendChild(para2)
+        div.appendChild(innerDiv)
+        // pages
+        innerDiv = document.createElement('div')
+        para1  = document.createElement('p')
+        para1.classList.add('pages')
+        para1.textContent = 'PAGES'
+        para2 = document.createElement('p')
+        para2.classList.add('book-pages')
+        para2.textContent = myLibrary[c].pages
+        innerDiv.appendChild(para1)
+        innerDiv.appendChild(para2)
+        div.appendChild(innerDiv)
+        // status
+        innerDiv = document.createElement('div')
+        para1  = document.createElement('p')
+        para1.classList.add('status')
+        para1.textContent = 'STATUS'
+        para2 = document.createElement('p')
+        para2.classList.add('book-status')
+        para2.textContent = myLibrary[c].status
+        innerDiv.appendChild(para1)
+        innerDiv.appendChild(para2)
+        div.appendChild(innerDiv)
+        // priority
+        innerDiv = document.createElement('div')
+        para1  = document.createElement('p')
+        para1.classList.add('priority')
+        para1.textContent = 'PRIORITY'
+        para2 = document.createElement('p')
+        para2.classList.add('book-priority')
+        para2.textContent = myLibrary[c].priority
+        innerDiv.appendChild(para1)
+        innerDiv.appendChild(para2)
+        div.appendChild(innerDiv)
+
+        console.log(myLibrary)
+        c += 1
+
+        document.querySelector('.book-info').style.display = 'flex'
+        bookHolder.style.display = 'none'
+        document.querySelector('form').reset()
+        header.style.filter = 'blur(0)'
+        form.style.display = 'none'
+        let books = document.querySelectorAll('.book')
+        books.forEach(book => {
+            book.style.filter = 'blur(0)'
+        });
+    }else{
+        form.style.display = 'none'
+        bookHolder.style.display = 'flex'
+        header.style.filter = 'blur(0)'
+        document.querySelector('form').reset()
+        let books = document.querySelectorAll('.book')
+        books.forEach(book => {
+            book.style.filter = 'blur(0)'
+        });
+    }
 })
 document.querySelector('.add-book').addEventListener('click', () => {
     bookHolder.style.display = 'none'
     form.style.display = 'block'
     header.style.filter = 'blur(8px)'
+    let books = document.querySelectorAll('.book')
+    books.forEach(book => {
+        book.style.filter = 'blur(8px)'
+    });
 })
 document.querySelector('.return').addEventListener('click', () => {
     bookHolder.style.display = 'flex'
