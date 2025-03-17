@@ -12,7 +12,7 @@
     <div class="header">
         <h1>LIBRARY</h1>
         <div class="add">
-            <button class="add-book"><img src="./assets/svgs/plus.svg" alt="plus-svg" width="40" height="40">Add</button>
+            <button class="add-book"><img src="./assets/svgs/plus.svg" alt="plus-svg" width="35" height="35">ADD</button>
         </div>
     </div>
     <div class="books">
@@ -27,24 +27,26 @@
                 <form action="#">
                     <p>
                         <label for="title">TITLE</label>
-                        <input type="text" id="title" required>
+                        <input type="text" id="title" name="title" required>
                     </p>
                     <p>
                         <label for="pages">PAGES</label>
-                        <input type="text" id="pages" required> 
+                        <input type="text" id="pages" name="pages" required> 
                     </p>
                     <p>     
                         <label for="status">STATUS</label>
-                        <input type="text" id="status" required>
+                        <input type="text" id="status" name="status" required>
                     </p>
                     <p>
                         <label for="priority">PRIORITY</label>
-                        <input type="text" id="priority" required>
+                        <input type="text" id="priority" name="priority" required>
                     </p>
-                    <button type='submit'>Create</button>
+                    <button type='submit' id="submit">Create</button>
                 </form>
                 <button class="return">Go back</button>
             </div>
+        </div>
+        <div class="book-info">
         </div>
     </div>
 </body>
