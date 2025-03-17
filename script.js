@@ -96,7 +96,6 @@ button.addEventListener('click', (e) => {
                 }
             })
         })
-        console.log(myLibrary)
         c += 1
 
         document.querySelector('.book-info').style.display = 'flex'
