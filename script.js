@@ -13,6 +13,7 @@ function addBookToLibrary(title, pages, status, priority){
     const id = crypto.randomUUID(); 
     myLibrary.push(new Book(title, pages, status, priority, id));
 }
+let ec = 0
 const bookHolder = document.querySelector('.book-holder')
 const form = document.querySelector('.form')
 const header = document.querySelector('.header')
@@ -20,6 +21,7 @@ bookHolder.addEventListener('click', () => {
     bookHolder.style.display = 'none'
     form.style.display = 'block'
     header.style.filter = 'blur(8px)'
+    ec++
 })
 const button = document.querySelector('#submit')
 let c = 0
@@ -135,11 +137,15 @@ document.querySelector('.add-book').addEventListener('click', () => {
     books.forEach(book => {
         book.style.filter = 'blur(8px)'
     });
+    ec++
 })
 document.querySelector('.return').addEventListener('click', () => {
-    bookHolder.style.display = 'flex'
-    form.style.display = 'none'
+    if(ec == 0){
+        bookHolder.style.display = 'flex'
+    }
     header.style.filter = 'blur(0)'
+    form.style.display = 'none'
+    document.querySelector('.book').style.filter = 'blur(0)'
 })
 const readBtn = document.querySelector('button[type="button"]')
 readBtn.addEventListener('click', () => {
