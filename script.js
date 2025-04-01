@@ -1,13 +1,12 @@
 const myLibrary = []
-function Book(title, pages, status, priority, id){
-    if(!new.target){
-        throw Error('This is a constructor');
+class Book{
+    constructor(title, pages, status, priority, id){
+        this.title = title
+        this.pages = pages
+        this.status = status
+        this.priority = priority
+        this.id = id
     }
-    this.title = title;
-    this.pages = pages;
-    this.status = status;
-    this.priority = priority;
-    this.id = id;
 }
 function addBookToLibrary(title, pages, status, priority){
     const id = crypto.randomUUID(); 
