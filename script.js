@@ -24,7 +24,7 @@ bookHolder.addEventListener('click', () => {
 })
 const button = document.querySelector('#submit')
 let c = 0
-button.addEventListener('click', (e) => {
+document.querySelector('#book-add-form').addEventListener('submit', (e) => {
     e.preventDefault()
     let title = document.querySelector('#title').value
     let pages = document.querySelector('#pages').value
@@ -107,7 +107,7 @@ button.addEventListener('click', (e) => {
         let books = document.querySelectorAll('.book')
         books.forEach(book => {
             book.style.filter = 'blur(0)'
-        });
+        })
     }else if(c >= 1){
         form.style.display = 'none'
         bookHolder.style.display = 'none'
@@ -116,7 +116,7 @@ button.addEventListener('click', (e) => {
         let books = document.querySelectorAll('.book')
         books.forEach(book => {
             book.style.filter = 'blur(0)'
-        });
+        })
     }else{
         form.style.display = 'none'
         bookHolder.style.display = 'flex'
@@ -125,7 +125,7 @@ button.addEventListener('click', (e) => {
         let books = document.querySelectorAll('.book')
         books.forEach(book => {
             book.style.filter = 'blur(0)'
-        });
+        })
     }
 })
 document.querySelector('.add-book').addEventListener('click', () => {

@@ -24,14 +24,14 @@
         <div class="form">
             <div>
                 <p>Create a book</p>
-                <form action="#">
+                <form action="#" id="book-add-form">
                     <p>
                         <label for="title">TITLE</label>
                         <input type="text" id="title" name="title" required>
                     </p>
                     <p>
                         <label for="pages">PAGES</label>
-                        <input type="text" id="pages" name="pages" required> 
+                        <input type="number" id="pages" name="pages" value="100" required> 
                     </p>
                     <p>     
                         <label for="status">STATUS</label>
@@ -39,7 +39,7 @@
                     </p>
                     <p>
                         <label for="priority">PRIORITY</label>
-                        <input type="text" id="priority" name="priority" required>
+                        <input type="number" id="priority" name="priority" required>
                     </p>
                     <button type='submit' id="submit">Create</button>
                 </form>
